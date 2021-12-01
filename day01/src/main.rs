@@ -14,36 +14,28 @@ fn load() -> Vec<i32> {
 }
 
 fn part_a(numbers: &Vec<i32>) {
-    let mut counter = 0;
-    for index in 1..numbers.len() {
-        let prev = numbers[index - 1];
-        let num = numbers[index];
-        if num > prev {
-            counter += 1;
-        }
-    }
+    let counter = numbers.iter()
+        .skip(1)
+        .enumerate()
+        .filter(|&(i,x)| {
+            return *x > numbers[i];
+        })
+        .count();
     println!("A: {}", counter)
 }
 
 fn part_b(numbers: &Vec<i32>) {
-    let mut counter = 0;
-    let mut prev = window_sum(&numbers, 3, 0);
-    for index in 1..numbers.len()-2 {
-        let current = window_sum(numbers, 3, index);
-        if current > prev {
-            counter += 1;
-        }
-        prev = current;
-    }
+    let window_sums = numbers.windows(3)
+        .map(|x| x.iter().sum::<i32>())
+        .collect::<Vec<i32>>();
+    let counter = window_sums.iter()
+        .skip(1)
+        .enumerate()
+        .filter(|&(i,x)| {
+            return *x > window_sums[i];
+        })
+        .count();
     println!("B: {}", counter)
-}
-
-fn window_sum(numbers: &Vec<i32>, size: usize, index: usize) -> i32 {
-    let mut total = 0;
-    for i in index..index+size {
-        total += numbers[i];
-    }
-    return total;
 }
 
 fn main() {
