@@ -2,15 +2,12 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 fn load() -> Vec<i32> {
-    let mut v: Vec<i32> = Vec::new();
     let filename = "./input.txt";
     let file = File::open(filename).unwrap();
     let reader = BufReader::new(file);
-    for (_, line) in reader.lines().enumerate() {
-        let line = line.unwrap();
-        v.push(line.parse::<i32>().unwrap())
-    }
-    return v;
+    return reader.lines()
+        .map(|l| l.unwrap().parse::<i32>().unwrap())
+        .collect::<Vec<i32>>();
 }
 
 fn part_a(numbers: &Vec<i32>) {
