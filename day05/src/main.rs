@@ -1,4 +1,4 @@
-use std::{fs::{read_to_string}, collections::HashMap, cmp::{min, max}};
+use std::{fs::{read_to_string}, collections::HashMap, cmp::{max}};
 
 #[derive(Hash, Eq, PartialEq, Debug, Clone, Copy)]
 struct Point {
@@ -33,8 +33,8 @@ fn generate_points_between(start: &Point, end: &Point) -> Vec<Point> {
     let x_length = end.x - start.x;
     let y_length = end.y - start.y;
     let vector = Point {
-        x: (x_length).signum(),
-        y: (y_length).signum()
+        x: x_length.signum(),
+        y: y_length.signum()
     };
     let length = max(x_length.abs(), y_length.abs());
     return (0..=length).into_iter()
