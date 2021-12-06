@@ -1,20 +1,14 @@
-use std::fs::File;
-use std::io::{BufRead, BufReader};
+use std::{fs::{read_to_string}};
 
 fn load() -> Vec<i32> {
-    let mut v: Vec<i32> = Vec::new();
     let filename = "./input.txt";
-    let file = File::open(filename).unwrap();
-    let reader = BufReader::new(file);
-    for (_, line) in reader.lines().enumerate() {
-        let line = line.unwrap(); // Ignore errors.
-        v.push(line.parse::<i32>().unwrap())
-    }
-    return v;
+    let text = read_to_string(filename)
+        .expect("Could not read file");
+    return text.split(",").map(|x| x.parse::<i32>().unwrap()).collect();
 }
 
 fn part_a(numbers: &Vec<i32>) {
-    println!("A: {}", 0)
+    println!("A: {}", 0);
 }
 
 fn part_b(numbers: &Vec<i32>) {
