@@ -68,7 +68,7 @@ fn step_grid(grid: &mut Grid) -> (u32, u32) {
         x.energy += 1;
         x.has_flashed = false;
     });
-    // While there are squd with flashes, keep iterating
+    // While there are squid with flashes, keep iterating
     loop {
         // Find any squids with greater than 9 energy
         let to_flash: Vec<Point> = grid.keys().cloned().filter(|&x| {
