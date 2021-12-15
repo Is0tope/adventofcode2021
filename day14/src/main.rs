@@ -70,7 +70,7 @@ fn reduce_counts(counts: &HashMap<String,u128>, first_char: char, last_char: cha
 fn part_a(pattern: &Vec<char>, template: &Template) {
     let counts = get_counts(pattern, template, 10);
     let counts = reduce_counts(&counts,pattern[0],pattern[pattern.len() - 1]);
-    println!("B: {}", counts.values().max().unwrap() - counts.values().min().unwrap());
+    println!("A: {}", counts.values().max().unwrap() - counts.values().min().unwrap());
 }
 
 fn part_b(pattern: &Vec<char>, template: &Template) {
