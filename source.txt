@@ -12,7 +12,7 @@ fn part_a(numbers: &Vec<i32>) {
 }
 
 fn part_b(numbers: &Vec<i32>) {
-    println!("B: {}", 0)
+    println!("B: {}", 0);
 }
 
 fn main() {
