@@ -45,7 +45,7 @@ fn parse_packet(pointer: &mut Chars) -> Option<Packet> {
         None => return None
     };
     // Figure out value or length
-    let mut value: u64 = 0;
+    let value: u64;
     let mut bit_length: u64 = 6;
     let mut length_type_id: u8 = 0;
     if type_id == 4 {
@@ -142,7 +142,7 @@ fn part_b(binary: &String) {
             }
         };
     }
-    // There should only be one value type in the stack at this point with our final value
+    // There should only be one value packet in the stack at this point with our final value
     println!("B: {}", stack[0].value);
 }
 

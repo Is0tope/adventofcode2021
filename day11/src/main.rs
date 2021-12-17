@@ -29,19 +29,6 @@ impl Point {
     }
 }
 
-fn print_grid(grid: &Grid, size: i32) {
-    for y in 0..size {
-        for x in 0..size {
-            let ch: String = match grid.get(&Point {x:x, y:y}) {
-                Some(s) => s.energy.to_string(),
-                None => " ".to_string()
-            };
-            print!("{}",ch);
-        }
-        println!("");
-    }
-}
-
 fn load() -> Grid {
     let filename = "./input.txt";
     let text = read_to_string(filename)

@@ -1,4 +1,3 @@
-use core::num;
 use std::{fs::{read_to_string}, collections::{HashMap, BinaryHeap}, cmp::{Ordering, max}};
 
 type Grid = HashMap<Point,u32>;
